@@ -1,8 +1,16 @@
 #! /bin/bash
 
 print_usage() {
-  echo "Usage: preview -a attachment-dir -e extension1 -e extension2 ..."
+  echo -e "Usage: imessage-cleaner.sh [--no-backup] -a attachment-dir -e extension1 -e extension2 ...\n"
+  echo -e "\t-a, --attachments-directory dir:"
+  echo -e "\t\tiMessage attachment directory absolute path."
+  echo -e "\t\tTypically in \"/User/<username>/Library/Messages/Attachments\""
+  echo -e "\t-e, --extension ext:"
+  echo -e "\t\tExtension of files to remove. Ex: -e gif"
+  echo -e "\t--no-backup:"
+  echo -e "\t\tDon't create an archive of removed files."
 }
+
 print_error() {
   echo "ERROR: $1"
 }
@@ -13,7 +21,11 @@ while [[ $# -gt 0 ]]; do
   key="$1"
 
   case $key in
-  -a | --attachment-directory)
+  -h | --help)
+    print_usage
+    exit 0
+    ;;
+  -a | --attachments-directory)
     ATTACH_DIR="$2"
     shift # past argument
     shift # past value
