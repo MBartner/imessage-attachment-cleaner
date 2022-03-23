@@ -19,7 +19,7 @@ Usage: imessage-cleaner.sh [--no-backup] -a attachment-dir -e extension1 -e exte
 ```
 
 ## Restoring backups
-* Open a terminal and cavigate to your root directory
+* Open a terminal and navigate to your root directory
 ```shell
 cd /
 tar -xzf <backup file name>.tar.gz
